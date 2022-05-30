@@ -20,6 +20,11 @@ func main() {
 func CeilingBinarySearch(arr []int, target int) int {
 	start := 0
 	end := len(arr) - 1
+	
+	if target > len(arr) -1 {
+	//// manlo target array ke last elemnt ki value se bhi badha hai to hamm -1 return kardege.
+		return -1
+	}
 
 	for start <= end {
 		mid := (start + end) / 2
