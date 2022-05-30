@@ -20,6 +20,7 @@ func FloorBinarySearch(arr []int, target int) int {
 	end := len(arr) - 1
 	
 	if target > len(arr) -1 {
+	//// manlo target array ke last elemnt ki value se bhi badha hai to hamm -1 return kardege.
 		return -1
 	}
 
