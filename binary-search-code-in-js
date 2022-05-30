@@ -1,10 +1,19 @@
 // my binary search code in javascript language
-// in accending order
-// binary search only works in sorted array
+// here we use two types of array (negative + positive value array)
+// and (only negative value array)
 
- const arrayOfNum= [2,4,7,9,12,20,25]
- const target = 9
-const answer = binarysearch(arrayOfNum,target)
+
+// binary search(accending order)
+const arrayOfNum= [-18,-12,-1,0,2,4,7,9,12,20,25]
+
+
+// always know jab app nagative number ko array me like to vo
+// accending order me ho na ki decending me ye binary search code
+// accending order ko follow karta hai.
+
+const arrayOfNum2= [-25,-21,-18,-15,-12,-8,-6,-4]
+const target = -8
+const answer = binarysearch(arrayOfNum2,target)
 console.log(answer)
 
 function binarysearch(arr,tar){
@@ -12,17 +21,37 @@ function binarysearch(arr,tar){
     let end = arr.length -1
     
     while(start <= end){
-        let mid = (start + end) /2 
+        // yaha app koi bhi math.florr or parseInt use kar sakte 
+        // ham yaha math.floor and ParseInt ka use kar rahe hai
+        // because js me jo Number hota hai vo float ko bhi support
+        // karta hai jo ki hamare liye sahi hai, becuase ager hamara
+        // array ka mid float number me ayega to calualtion galat
+        // hogi that's why ham yaha parseInt or math.floor ka use
+        // karke uss float ko int number me change kar rahe hai taki
+        // koi error nh ayee
+        // it' your choice u can math.floor or parseInt
+        
+        
+        //// let mid =Math.floor((start + end)/2)
+        let mid =parseInt((start + end)/2)
         
         if(tar < arr[mid]){
-             end = mid -1
-        }else if (tar > arr[mid]){
-             start = mid +1 
-        }else{
-            
+             end = mid -1;
+        }
+        else if (tar > arr[mid]){
+             start = mid +1; 
+             
+        }
+        // ager (target > mid) se kam nhi hai or (target < mid) se chota bhi hai means vo target == mid ke bara-bar hai
+        else {
             return mid
         }
+        
+        continue
+        
     }
-    return -1
+    return "number is not present in array"
 }
+
+
 
