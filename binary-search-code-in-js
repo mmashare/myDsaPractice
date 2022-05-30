@@ -1,5 +1,6 @@
 // my binary search code in javascript language
 // in accending order
+// binary search only works in sorted array
 
  const arrayOfNum= [2,4,7,9,12,20,25]
  const target = 9
