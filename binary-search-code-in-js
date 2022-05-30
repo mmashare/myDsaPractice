@@ -1,0 +1,26 @@
+// my binary search code in javascript language
+
+ const arrayOfNum= [2,4,7,9,12,20,25]
+ const target = 9
+const answer = binarysearch(arrayOfNum,target)
+console.log(answer)
+
+function binarysearch(arr,tar){
+    let start = 0
+    let end = arr.length -1
+    
+    while(start <= end){
+        let mid = (start + end) /2 
+        
+        if(tar < arr[mid]){
+             end = mid -1
+        }else if (tar > arr[mid]){
+             start = mid +1 
+        }else{
+            
+            return mid
+        }
+    }
+    return -1
+}
+
