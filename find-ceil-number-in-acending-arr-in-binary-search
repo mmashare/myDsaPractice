@@ -1,0 +1,44 @@
+/// find ceiling number in sorted accending order array by binary search method
+/// this code is only for accending order sorted array
+//// if you don't get how it's work just watch in copy i wrote that how it's work
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	AcenArr := []int{-4, -1, 0, 2, 4, 6, 8, 10, 14}
+
+	tar := 3
+
+	answer1 := CeilingBinarySearch(AcenArr, tar)
+	fmt.Println(answer1)
+}
+
+func CeilingBinarySearch(arr []int, target int) int {
+	start := 0
+	end := len(arr) - 1
+
+	for start <= end {
+		mid := (start + end) / 2
+
+		if target < arr[mid] {
+			end = mid - 1
+		} else if target > arr[mid] {
+			start = mid + 1
+		} else {
+			return mid
+		}
+
+	}
+	// yaha ham -1 ki start return karege why lets see
+	// basiclly ye start jab return hoga jab pura array me biary search karne ke badd bhi target nhi mila hai, means target number array me nhi hai now we have to return -1 but now we have the last kth element 
+	// of this array hamme bas uss kth element me +1 karna hai then is will convert into a ceil number of that target. and ye jo start hai vo mid(kth element) ke ek badd ka number hai. which is ceil of target 
+	return start
+}
+
+
+
+
