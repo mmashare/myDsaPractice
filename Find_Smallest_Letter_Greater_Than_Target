@@ -1,0 +1,50 @@
+// Given a characters array letters that is sorted in non-decreasing order(accending order) and a character target, {{{{{{ return }}}}} the smallest character in the array that is larger than target (ceiling of array)
+// example of array -> arr = [a,b,c,d,e,f]
+
+/// but For example, if target == 'z' and letters == ['a', 'b'], because in that array there is no one letter which is greater than the target so just return the 0th index value of that array.
+//  note -> yaha hamara same binary approach lagegi bass toda sa hamara code edit hoga yaha par, (because is question me ham target => number nhi dege ,balki target > number dege)
+// iss question me hamme mid to return karnaa hi nhi hai kisi bhikimat ar only ceil number return karna hai
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var letters1 = []byte{'c', 'f', 'j'}
+	fmt.Println(letters1) //// yaha apko pata chalega ki default mee byte number print hote hai.
+	var target = byte('a')
+
+	letters2 := []byte{'c', 'f', 'j', 'k', 'l'}
+	target2 := byte('z')
+	//// note -> if you can't find the target just return array first element
+
+	answer1 := CeilingBinarySearch(letters1, target)
+	fmt.Println(answer1)
+
+	answer2 := CeilingBinarySearch(letters2, target2)
+	fmt.Println(answer2)
+}
+
+func CeilingBinarySearch(letters []byte, target byte) string {
+	start := 0
+	end := len(letters) - 1
+
+	for start <= end {
+		mid := (start + end) / 2
+
+		if target < letters[mid] {
+			end = mid - 1
+		} else {
+			start = mid + 1
+
+		}
+
+	}
+	return string(letters[start%len(letters)])
+
+  //// yaha hamne string() ke ander logic likha hai so we can change byte numbers to string it's called type casting.
+	/////////////////////////////// if the answer is comes in number you don't have to worry because byte prints in integer whether we store in alfabat in array it com
+
+}
