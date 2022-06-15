@@ -1,0 +1,26 @@
+// Mountain array means [0,2,4,6,8,7,3,2,1] ascending se start //decending me end hota hai.
+
+var peakIndexInMountainArray = function(arr) {
+    let start = 0;
+    let end = arr.length -1;
+    let mid;
+    while (start <= end) {
+        mid = Math.floor(start + (end - start) / 2);
+        if (arr[mid]> arr[mid + 1] && arr[mid] > arr[mid - 1]) {
+        // bascially ham yaha par ham [0,2,4,6,8{mid},5,3,2,1]  check kar rahe hai ki 8(mid) 6(mid-1) se badda hai and 8(mid) 5(mid+1) se bhi badda hai
+        // then its mean 8 is the largest num in that array 
+            return mid;
+        } else if (arr[mid] > arr[mid + 1]) {
+        // if this true mean app array ke decending part me ho
+        // manlo mid 8 num nhi hai then hamme simple binary search vali approach lani padegi
+            end = mid - 1;
+        } else {
+        // yaha else if ka tikkk ulta hai -> (arr[mid] < arr[mid + 1])
+        // if this true mean app array ke accending part me ho 
+            start = mid + 1;
+        }
+    }
+};
+
+// yaha ham start ya end ko return nhi kar rahe hai because ye process automaticallly chalegi example -> ek time asa ayega ki array ham start+end/2 
+// karege to automatically jo mid ayega vo array ka sabse badda number hoga
