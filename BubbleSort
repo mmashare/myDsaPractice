@@ -1,0 +1,26 @@
+
+var killer  = [-67,-6,-9,102,190,45,67,89];
+const ll = bubbleSort(killer);
+console.log(killer);
+
+---------------------------------------  Bubble Sort Logic ------------------------------------
+function bubbleSort(arr){
+    let swap;
+    for(let i=0;i < arr.length;i++){
+        swap=false; // because hamne yaha first time swap ki value define kari hai toye deafult value mani jayegi swap var ki. 
+        for(let j=0;  j < arr.length - i;j++){
+        // iss code logic ke ander ham j ki place par [j-1] and [j-1] ke place par j place kar rahe hai
+            if(arr[j] < arr[j-1]){
+           
+                let temp = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = temp;
+                swap=true;
+            }
+        }
+        if(!swap){
+            // (!swap) => means hai jo bhi swap ki default value(false) hai ager vo value change ho jaye to loop break kar dena.
+            break;
+        }
+    }
+}
