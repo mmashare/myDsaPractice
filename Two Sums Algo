@@ -1,0 +1,45 @@
+// -------------------------------- how two loops work internally ---------------------------
+ 
+// const l = [1,2,3,4,5]
+// function looper(arr){
+//     for(let i =0;i < arr.length;i++){
+//         console.log("parent loop",arr[i]);
+//         for(let j =1; j<arr.length-i;j++){
+//             console.log("child loop",arr[j])
+//         }
+//     }
+// }
+// looper(l);
+//------------------------------------------- Two Sum Logic ---------------------------------
+
+
+nums = [2,7,11,15], target = 9
+//nums = [3,2,4], target = 6
+//nums = [3,3], target = 6
+var twoSum = (nums, t) =>{
+    let psum = new Map();
+    for(let i=0;i<nums.length;i++) {
+        const num = nums[i];// nums[i] means ham yaha pura number is var me store kar rahe ha na ki only uss num ka index no.
+        if (psum.has(t-num)) {
+            return [psum.get(t-num), i];
+        }
+        psum.set(num,i);
+    }
+    return [];
+};
+
+let kk= twoSum(nums,target);
+console.log(kk);
+
+const newtowsum = (arr,tar)=>{
+    const psum = new Map();
+    for (let i=0;i<arr.length;i++){
+        let nums = arr[i];
+
+        if(psum.has(tar-nums)){
+            return [psum.get(tar-nums),i]
+        }
+        psum.set(nums,i)
+    }
+    return [];
+}
