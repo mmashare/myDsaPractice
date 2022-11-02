@@ -1,0 +1,15 @@
+// in that question we have to find that is any number is comes twice in that array if yes than return true(boolean) otherwise return false(boolean).
+
+// link of question - https://leetcode.com/problems/contains-duplicate/
+
+// explaination in notebook
+
+var containsDuplicate = function(nums,numsSet = new Set()) {
+    for(n of nums){
+        if(numsSet.has(n)){
+           return true;
+           }
+        numsSet.add(n);
+    }
+    return false;
+};
