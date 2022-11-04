@@ -1,0 +1,32 @@
+// somethings to know ----------------------------------
+// CircleSort Code
+//1 - arr me num 1 start hone chiye always , zero se nhi because iss file ke CircleSort ka code utna optimize nhi hai.
+//2-  arr me always number step by step[4,2,3,1] hone chiye ,unstep by unstep[5,2,3,1] (yaha arr ek number miss hai ) nhi.
+
+var arr1 = [3,2,4,1];
+Sort(arr1);
+console.log(arr1);
+function Sort(arr){
+        let i  = 0;
+        while (i < arr.length){
+            let correct = arr[i] - 1; // index of num
+            // arr[i] -> ye original number hai.
+            if(arr[i] != arr[correct]){
+                Swap(arr,i,correct)
+                // i -> i ko ase arr[i] change karoge to  ye real number ban jayega
+                // correct  -> correct ko asa arr[correct] me change karoge to real index ka jo number hoga uss arr ke number me convert kar daga.
+            }else{
+                i++;
+            }
+            
+        }
+        
+}
+function Swap(arr,first,second){
+    let temp = arr[first];
+    arr[first]= arr[second];
+    // arr[second] -> logic of that is = arr[arr[correct]] ye open logic hai arr[second] ka which prety hard to know, so basically in that arr[arr[correct]] logic we are 
+    converting index number(2) into real array number(2).so we can change arr[i](3) position to arr[correct](2) position. always know that correct number will be one smaller 
+    than arr[i] number
+    arr[second] = temp;
+}
