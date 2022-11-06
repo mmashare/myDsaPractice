@@ -1,0 +1,36 @@
+// ye question leetcode ka hai related to sorting kisme ham cyclic sort ka use karege. kosis kare jin question me target find karne ko nhi diya hai vaha binary search ki
+// jaha sorting lagye.
+// amazon question ask
+
+
+let nums = [4,0,2,1];
+let findnumber = missingNumber(nums);
+console.log(findnumber)
+
+
+function missingNumber(nums) {
+// first approch to sort the arr 
+    let i = 0;
+    while(i< nums.length){
+        let correct = nums[i];
+        if(nums[i] < nums.length && nums[i] != nums[correct]){
+            Swap(nums,i,correct);
+        }else{
+            i++;
+        }
+    }
+    // second approch to find the missing number by return its index.
+    
+    for(let j=0;j<nums.length;j++){
+        if(nums[j] != j){
+          return j;    // vase to hame arr me se missing number return karna hai but yaha ham uss number ka index hi return kar hai because iss arr me number [1 to n] so its mean that 1 number ka index bhi 1 hoga so why not return index missing number index {ab batt to vo hi hai 2 number ya 2 nuber ka index return karo jo ki 2 hi hai, so its don't matter much}
+        }
+       
+    }
+     return nums.length;
+};
+function Swap(arr,first,second){
+    let temp = arr[first];
+    arr[first]= arr[second];
+    arr[second] = temp;
+}
